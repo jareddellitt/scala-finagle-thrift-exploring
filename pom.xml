@@ -2,10 +2,9 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.dellitt</groupId>
-    <artifactId>scala-thrift</artifactId>
+    <artifactId>scala-thrift-calc</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <name>scala-thrift</name>
-    <url>http://maven.apache.org</url>
+    <name>scala-thrift-calc</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -77,6 +76,17 @@
                 <groupId>net.alchim31.maven</groupId>
                 <artifactId>scala-maven-plugin</artifactId>
                 <version>3.1.5</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>compile</goal>
+                            <goal>testCompile</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <scalaVersion>${scala.version}</scalaVersion>
+                </configuration>
             </plugin>
 
             <plugin>
