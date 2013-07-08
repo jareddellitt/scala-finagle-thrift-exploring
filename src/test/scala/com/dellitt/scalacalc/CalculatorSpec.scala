@@ -4,12 +4,15 @@ import org.specs2.mutable.SpecificationWithJUnit
 import com.twitter.util.Await
 import com.dellitt.scalacalc.builders.CalculatorServiceBuilder
 import com.dellitt.scalacalc.builders.CalculatorClientBuilder
+import java.net.InetSocketAddress
 
 class CalculatorSpec extends SpecificationWithJUnit {
 
     "calculator service" should {
         val server = new CalculatorServiceBuilder().build
-        val client = new CalculatorClientBuilder().build(server.localAddress)
+        server.start()
+
+        val client = new CalculatorClientBuilder().build(new InetSocketAddress(server.thriftPort))
 
         "produce the correct sum when add is called" in {
             Await result client.add(20, 9) should equalTo(29)

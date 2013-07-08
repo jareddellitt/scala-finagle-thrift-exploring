@@ -14,7 +14,6 @@ class CalculatorClientBuilder {
             .hostConnectionLimit(1)
             .build()
 
-
-        new Calculator.FinagledClient(service);
+        new Calculator.FinagledClient(service)
     }
 }
