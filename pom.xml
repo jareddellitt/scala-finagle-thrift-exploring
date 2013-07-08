@@ -74,9 +74,20 @@
 
         <plugins>
             <plugin>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>2.4</version>
+                <executions>
+                    <execution>
+                        <id>default-jar</id>
+                        <phase>none</phase>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
                 <artifactId>maven-assembly-plugin</artifactId>
                 <version>2.4</version>
                 <configuration>
+                    <appendAssemblyId>false</appendAssemblyId>
                     <archive>
                         <manifest>
                             <mainClass>com.dellitt.scalacalc.Application</mainClass>
@@ -96,7 +107,6 @@
                     </execution>
                 </executions>
             </plugin>
-
 
             <plugin>
                 <groupId>net.alchim31.maven</groupId>
@@ -155,7 +165,5 @@
                 </executions>
             </plugin>
         </plugins>
-
     </build>
-
 </project>
